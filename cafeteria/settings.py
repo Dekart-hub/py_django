@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "web"
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,8 @@ WSGI_APPLICATION = "cafeteria.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgre",
-        "USER": "potgre",
+        "NAME": "postgres",
+        "USER": "postgres",
         "PASSWORD": "123",
         "HOST": "localhost",
         "PORT": 5432
