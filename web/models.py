@@ -1,24 +1,21 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 
-# Create your models here.
-class Product(models.Model):
-    name = models.CharField(max_length=256)
-    cal = models.IntegerField()
-    weight = models.IntegerField()
-    price = models.IntegerField()
+User = get_user_model()
 
 
 class Dish(models.Model):
     name = models.CharField(max_length=256)
-    type = models.CharField(max_length=256)
-    weight = models.IntegerField()
-    products = models.ManyToManyField(Product)
+    ingridients = models.CharField(max_length=256)
+    description = models.CharField(max_length=256, null=True)
+    ccal = models.IntegerField()
+    image = models.ImageField(upload_to='dishes/', null=True, blank=True)
+    
 
-
-class Cook(models.Model):
+class Order(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    dish_id = models.ForeignKey(Dish, on_delete=models.CASCADE)
     count = models.IntegerField()
-    id_dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
-    prep_date = models.DateTimeField()
-
-
+    comment = models.CharField(max_length=256, null=True)
+    ord_date = models.DateTimeField()

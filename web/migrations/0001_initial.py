@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("name", models.CharField(max_length=256)),
-                ("type", models.CharField(max_length=256)),
+                ("ingridients", models.CharField(max_length=256)),
                 ("weight", models.IntegerField()),
                 ("products", models.ManyToManyField(to="web.product")),
             ],
